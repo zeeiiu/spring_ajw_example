@@ -16,7 +16,7 @@
 
 	<!-- Processes application requests -->
 	<!-- DispatcherServlet appServlet = new DispatcherServlet(); -->
-	<servlet>
+	<servlet> <!-- <bean> + servlet을 상속받은 클래스 (예전에 쇼핑 골프 투표짰을 때 BoardController에서 했던 것들을  미리 DispatcherServlet에 구현)-->
 		<servlet-name>appServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
