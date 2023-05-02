@@ -4,5 +4,29 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+   <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+      <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+      <property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521/xe"></property>
+      <property name="username" value="scott"></property>
+      <property name="password" value="tiger"></property>
+   </bean>
+   
+   <!-- HikariCP configuration -->
+   <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+      <constructor-arg ref="hikariConfig" />
+   </bean>
+   
+      <!-- 1.번 방법을 위하여 mapperLocations 을 추가 함 -->
+   <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+      <property name="dataSource" ref="dataSource"/>
+      <property name="mapperLocations" value="classpath:/mappers/**/*.xml" />
+   </bean>
+   
+   <!-- 1번 방식 사용을 위한 sqlSession -->
+   <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+      <constructor-arg index="0" ref="sqlSessionFactory" />
+   </bean>
+	
 		
 </beans>
