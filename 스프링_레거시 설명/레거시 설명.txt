@@ -1,19 +1,5 @@
-1. 시프링 레거시 순서
- - 1) pom.xml 을 통하여, 기본적인 라이브러를 체크(스프링 버전, 자바 버전 등등) 스프링 3 버전은 자바  1.6버전을 기본으로 쓰임
- - 2) web.xml을 체크 -> Tomcat 이 읽어들이는 환경(설정) 파일
-  -> 디스패처 서블릿 객체 생성
-  -> 한글 처리(UTF-8)
-  -> root.xml 과 servelt.xml 읽어 들여 Ioc Container(스프링) 두개를 만듦 
-  
-  로그
-  INFO : org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization started
-  ....
-  ....
-  INFO : org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization started (디스패처 서블릿) 객체 생성
-  ...
-  ...
-  INFO : org.springframework.web.context.support.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Thu Apr 27 16:33:25 KST 2023]; parent: Root WebApplicationContext
-  
-  
-  아래 블로그 참고 
- https://hpark3.tistory.com/28
+1. 스프링 레거시 순서
+ - 1) pom.xml 을 통하여 기본적인 라이브러리를 체크 (스프링 버전, 자바 버전, 롬복이 쓰는가 등..)
+ - 2) web.xml을 체크 -> Tomcat이 읽어들이는 환경(설정)파일
+ 
+ 
